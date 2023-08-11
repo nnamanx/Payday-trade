@@ -20,11 +20,9 @@ public class Stock {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String symbol;   // e.g., AAPL for Apple
-    @NotNull
     String name;
     String brand;
     String info;
-    @NotNull
     Double currentPrice;
     Double quantityAvailable;
 

@@ -29,13 +29,14 @@ public class Customer implements UserDetails {
     String fullName;
 
     @Column(unique = true)
-    @Email(message = "Invalid Email")
     String email; //username
 
-    @Size(min = 6, message = "Password must contain at least 6 characters")
+//    @Size(min = 6, message = "Password must contain at least 6 characters")
     String password; //hashed
 
     String phoneNumber;
+
+    Long deposit;
 
     @Builder.Default
     Boolean isActive = false;   // not active when the profile first created
