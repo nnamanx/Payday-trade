@@ -4,14 +4,15 @@ import com.laman.paydaytradesystem.model.enums.Role;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 @Data
@@ -37,53 +38,57 @@ public class Customer implements UserDetails {
     String phoneNumber;
     Boolean isActive;
 
-
     @Enumerated(EnumType.STRING)
-    Role role;
+    @Builder.Default
+    Role role = Role.USER;
 
     @OneToMany(mappedBy = "customer")
+    @ToString.Exclude // bro...
     List<Token> tokens;
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     List<Transaction> transactions;
 
-    //orders?
+    @ElementCollection
+//    @MapKeyColumn(name = "stock_symbol")
+//    @Column(name = "stock_quantity")
+    @Builder.Default
+    Map<String, Integer> stocks = new HashMap<>();
 
+
+//    User details methods
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
+        return null;
     }
 
     @Override
     public String getUsername() {
-        return email;
+        return null;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return false;
     }
+
+    //orders?
 
 
     //Here's how the entities map to the provided user stories:
