@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: delivery-management
+  profiles:
+    include:
+      - db
