@@ -15,6 +15,10 @@ import java.time.LocalDateTime;
 @Table(name = "transaction")
 public class Transaction {
 
+    // A "Transaction" entity represents an individual action or event involving the buying or selling of a financial asset.
+    // Transactions capture the details of the trade, including the asset being traded, the quantity, the price,
+    // the date and time, and any associated fees or costs.
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     String id;
@@ -22,7 +26,7 @@ public class Transaction {
     LocalDateTime timestamp;
     Double quantity;
     Double targetPrice;
-    Double filledPrice;
+    Double filledPrice;     // The filledPrice attribute represents the price at which a trade was executed or "filled."
     Boolean isFilled;
 
     @ManyToOne

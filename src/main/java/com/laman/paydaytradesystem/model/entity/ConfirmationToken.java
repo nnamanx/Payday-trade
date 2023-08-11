@@ -20,6 +20,8 @@ public class ConfirmationToken {
     LocalDateTime createdAt;
     LocalDateTime confirmedAt;
 
+//    Boolean confirm;     broo
+
     @OneToOne
     Customer customer;
 

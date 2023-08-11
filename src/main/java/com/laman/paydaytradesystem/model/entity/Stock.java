@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -19,11 +20,17 @@ public class Stock {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String symbol;   // e.g., AAPL for Apple
+    @NotNull
     String name;
+    String brand;
+    String info;
+    @NotNull
     Double currentPrice;
     Double quantityAvailable;
 
-    //One stock can be involved in multiple transactions
+    // image needed?
+
+    // One stock can be involved in multiple transactions
     @OneToMany
     List<Transaction> transaction;
 }

@@ -18,12 +18,10 @@ public class Token {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String token;
-
     @Enumerated(EnumType.STRING)
-    TokenType tokenType;
-
+    @Builder.Default
+    TokenType tokenType = TokenType.BEARER;
     boolean expired;
-
     boolean revoked;
 
     @ManyToOne
