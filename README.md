@@ -1,6 +1,17 @@
 <h1> Payday Trading Bank </h1>
 Payday bank is implementing brand new Trading solution. The customers now should be able to purchase stocks from partner brokers through their bank account.
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+- [Technologies Used](#technologies-used)
+- [License](#license)
+
+
 <h2>Task</h2>
 <ul>
 <li>Implement rest APIs given in the user stories</li>
@@ -27,15 +38,6 @@ application to the same kubernetes cluster and use namespaces as to isolate each
 <li>Swagger</li>
 </ul>
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-- [Technologies Used](#technologies-used)
-- [License](#license)
 
 ## Introduction
 
