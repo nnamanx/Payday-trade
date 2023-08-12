@@ -62,10 +62,13 @@ using JWT (JSON Web Tokens).
 
 ### Installation
 
-Clone this repository:
+1. Clone this repository:
    ```sh
    git clone https://github.com/nnamanx/payday-trade.git
    cd payday-trade.git
+             
+
+
 
 ## License
 
