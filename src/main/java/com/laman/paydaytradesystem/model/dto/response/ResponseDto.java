@@ -13,4 +13,5 @@ public class ResponseDto {
 
     String message;
     HttpStatus status;
+//    T data; // authenticationResponseDto
 }

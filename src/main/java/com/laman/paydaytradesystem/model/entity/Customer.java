@@ -4,11 +4,10 @@ import com.laman.paydaytradesystem.model.enums.Role;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +30,7 @@ public class Customer implements UserDetails {
     @Column(unique = true)
     String email; //username
 
-//    @Size(min = 6, message = "Password must contain at least 6 characters")
+    //    @Size(min = 6, message = "Password must contain at least 6 characters")
     String password; //hashed
 
     String phoneNumber;
@@ -56,42 +55,43 @@ public class Customer implements UserDetails {
 //    @MapKeyColumn(name = "stock_symbol")
 //    @Column(name = "stock_quantity")
     @Builder.Default
-    Map<String, Integer> stocks = new HashMap<>();
+    Map<String, Integer> stocks = new HashMap<>();        //why hashmap?
+
+    //orders?
 
 
 //    User details methods
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+
+        return List.of(new SimpleGrantedAuthority(role.name()));
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return email;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
-
-    //orders?
 
 
     //Here's how the entities map to the provided user stories:
