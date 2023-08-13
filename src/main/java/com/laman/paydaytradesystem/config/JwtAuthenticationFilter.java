@@ -3,9 +3,11 @@ package com.laman.paydaytradesystem.config;
 import com.laman.paydaytradesystem.service.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -43,7 +45,24 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(email);
+
+            if (jwtService.isTokenValid(jwtToken, userDetails)) {
+
+                // if it is valid, then update the security context holder
+                UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                        userDetails,
+                        null,
+                        userDetails.getAuthorities()
+                );
+
+                // not sure why do we need whole request
+                authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+                // Updating security context holder
+                SecurityContextHolder.getContext().setAuthentication(authToken);
+            }
         }
 
+        filterChain.doFilter(request, response);
     }
 }
