@@ -3,6 +3,9 @@ package com.laman.paydaytradesystem.config;
 import com.laman.paydaytradesystem.service.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -17,6 +20,7 @@ import java.io.IOException;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
+    private final UserDetailsService userDetailsService;
 
     @Override
     protected void doFilterInternal(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull FilterChain filterChain) throws ServletException, IOException {
@@ -34,6 +38,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         jwtToken = authenticationHeader.substring(7);
 
         email = jwtService.extractUserEmail(jwtToken);
+
+        // Once user is not connected
+        if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+
+//            UserDetails userDetails = this.userDetailsService.loadByUsername(email);
+        }
 
     }
 }
