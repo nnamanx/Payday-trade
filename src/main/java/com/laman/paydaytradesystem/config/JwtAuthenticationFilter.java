@@ -42,7 +42,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         // Once user is not connected
         if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
-//            UserDetails userDetails = this.userDetailsService.loadByUsername(email);
+            UserDetails userDetails = this.userDetailsService.loadUserByUsername(email);
         }
 
     }
