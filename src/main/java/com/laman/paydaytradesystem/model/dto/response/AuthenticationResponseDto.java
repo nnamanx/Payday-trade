@@ -12,6 +12,9 @@ import java.time.LocalDateTime;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class AuthenticationResponseDto {
+
+    String token;
+
     @JsonProperty("access_tokennn")
     String accessToken;
 
