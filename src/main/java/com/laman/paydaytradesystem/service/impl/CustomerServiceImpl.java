@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 public class CustomerServiceImpl implements CustomerService {
     @Override
     public void executeOrderAndUpdateBalance(OrderStock order, Double currentPrice) {
-        
+
+
     }
 }
