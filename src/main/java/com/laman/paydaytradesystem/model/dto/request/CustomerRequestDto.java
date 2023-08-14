@@ -1,5 +1,6 @@
 package com.laman.paydaytradesystem.model.dto.request;
 
+import com.laman.paydaytradesystem.model.enums.Role;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -24,5 +25,7 @@ public class CustomerRequestDto {
     @NotBlank(message = INVALID_PASSWORD)
     @Size(min = 6, message = PASSWORD_RULE)
     String password;
+
+    Role role; // needed?
 
 }
