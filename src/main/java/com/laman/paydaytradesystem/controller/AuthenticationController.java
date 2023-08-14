@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("payday/v1/auth")
+@RequestMapping("/payday/v1/auth")
 public class AuthenticationController {
 
     private final AuthenticationService authenticationService;

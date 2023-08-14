@@ -26,7 +26,7 @@ public class SecurityConfig {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .antMatchers()
+                .antMatchers("/payday/v1/auth/**")
                 .permitAll()
                 //  request Matcher lists (aka white list) are unauthorized
                 .anyRequest()
