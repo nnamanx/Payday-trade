@@ -8,8 +8,12 @@ import com.laman.paydaytradesystem.repository.CustomerRepository;
 import com.laman.paydaytradesystem.service.AuthenticationService;
 import com.laman.paydaytradesystem.service.JwtService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import javax.validation.constraints.NotNull;
 
 @Service
 @RequiredArgsConstructor
@@ -18,6 +22,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final CustomerRepository customerRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
+    private final AuthenticationManager authenticationManager;
+
 
     @Override
     public AuthenticationResponseDto register(CustomerRequestDto customerRequestDto) {
@@ -32,13 +38,27 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         customerRepository.save(customer);
 
         var jwtToken = jwtService.generateToken(customer);
+
         return AuthenticationResponseDto.builder()
                 .token(jwtToken)
                 .build();
     }
 
     @Override
-    public AuthenticationResponseDto authenticate(CustomerRequestDto customerRequestDto) {
-        return null;
+    public AuthenticationResponseDto authenticate(@NotNull CustomerRequestDto customerRequestDto) {
+
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+                customerRequestDto.getEmail(),
+                customerRequestDto.getPassword())
+        );
+
+        var customer = customerRepository.findByEmail(customerRequestDto.getEmail())
+                .orElseThrow();
+
+        var jwtToken = jwtService.generateToken(customer);
+
+        return AuthenticationResponseDto.builder()
+                .token(jwtToken)
+                .build();
     }
 }
