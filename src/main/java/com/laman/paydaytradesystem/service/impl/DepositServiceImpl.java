@@ -8,6 +8,8 @@ import com.laman.paydaytradesystem.service.DepositService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
 @Service
 @RequiredArgsConstructor
 public class DepositServiceImpl implements DepositService {
@@ -15,14 +17,13 @@ public class DepositServiceImpl implements DepositService {
     private CustomerRepository customerRepository;
 
     @Override
-    public DepositResponse depositCash(Long userId, Double amount) {
+    public DepositResponse depositCash(Long userId, BigDecimal amount) {
 
         // Getting customer's account from the repository
         Customer customer = customerRepository.findById(userId).orElseThrow(CustomerNotFoundException::new);
 
-        // Increase user's cash balance
-        Double currentBalance = customer.getBalance();
-        Double newBalance = currentBalance.add(amount);
+        BigDecimal currentBalance = customer.getBalance();
+        BigDecimal newBalance = currentBalance.add(amount);
         customer.setBalance(newBalance);
         customerRepository.save(customer);
 

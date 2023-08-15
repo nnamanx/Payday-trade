@@ -1,9 +1,10 @@
-spring:
-  cloud:
-    openfeign:
-      clients:
-        externalService:
-          url: https://dummyapi.io/data/api
+#spring:
+#  cloud:
+#    openfeign:
+#      clients:
+#        externalService:
+#          url: https://dummyjson.com
+
 
 #dummy:
 #  api:

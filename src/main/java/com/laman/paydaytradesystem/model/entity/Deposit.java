@@ -18,7 +18,7 @@ public class Deposit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Double amount;
+    private BigDecimal amount;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

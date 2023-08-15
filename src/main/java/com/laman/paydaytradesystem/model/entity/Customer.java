@@ -8,6 +8,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +32,7 @@ public class Customer implements UserDetails {
     String email; //username
     String password; //hashed
     String phoneNumber;
-    Double balance;
+    BigDecimal balance;
     @Builder.Default
     Boolean isActive = false;
     String activationCode;
