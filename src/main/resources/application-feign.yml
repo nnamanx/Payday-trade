@@ -1,2 +1,11 @@
 spring:
+  cloud:
+    openfeign:
+      clients:
+        externalService:
+          url: https://dummyapi.io/data/api
 
+#dummy:
+#  api:
+#    url: https://dummyapi.io/data/api
+#    key: ?

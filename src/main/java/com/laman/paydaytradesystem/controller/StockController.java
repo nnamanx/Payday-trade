@@ -21,8 +21,8 @@ public class StockController {
 
 
     @GetMapping
-    public ResponseEntity<List<Stock>> listStocks() {
-        List<Stock> stocks = stockService.getAllStocks();
-        return ResponseEntity.ok(stocks);
+    public ResponseEntity<List<Stock>> listMockStocks() {
+        List<Stock> mockStocks = stockService.getAllMockStocks();
+        return ResponseEntity.ok(mockStocks);
     }
 }

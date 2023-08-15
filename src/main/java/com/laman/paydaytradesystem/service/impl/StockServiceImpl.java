@@ -16,8 +16,8 @@ public class StockServiceImpl implements StockService {
     private final StockApiClient stockApiClient;
 
 
-    public List<Stock> getAllStocks() {
-        return stockApiClient.getAllStocks();
+    public List<Stock> getAllMockStocks() {
+        return stockApiClient.getAllMockStocks();
     }
 
 }
