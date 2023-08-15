@@ -1,9 +1,11 @@
 package com.laman.paydaytradesystem.model.entity;
 
+import com.laman.paydaytradesystem.model.enums.OrderType;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Data
@@ -26,9 +28,12 @@ public class OrderStock {
 
     String type; //BUY or SELL
     String stockSymbol;      // bro, what will this do?
-    Double targetPrice;
+    BigDecimal targetPrice;
     Integer quantity;            // transaction
     Boolean isFilled;
+    @Enumerated(EnumType.STRING)
+    OrderType orderType;
+
 
     //many orders belong to one customer
     @ManyToOne(fetch = FetchType.LAZY)
