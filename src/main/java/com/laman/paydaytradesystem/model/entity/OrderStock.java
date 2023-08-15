@@ -29,11 +29,10 @@ public class OrderStock {
     String type; //BUY or SELL
     String stockSymbol;      // bro, what will this do?
     BigDecimal targetPrice;
-    Integer quantity;            // transaction
+    int quantity;            // transaction
     Boolean isFilled;
     @Enumerated(EnumType.STRING)
     OrderType orderType;
-
 
     //many orders belong to one customer
     @ManyToOne(fetch = FetchType.LAZY)
