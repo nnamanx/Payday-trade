@@ -2,12 +2,13 @@ package com.laman.paydaytradesystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-public class PaydayTradeSystemApplication {
+@EnableFeignClients
+public class PaydayTradeSystemApplication  {
 
     public static void main(String[] args) {
         SpringApplication.run(PaydayTradeSystemApplication.class, args);
     }
-
 }
