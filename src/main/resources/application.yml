@@ -6,3 +6,4 @@ spring:
       - db
       - security
       - email
+      - feign
