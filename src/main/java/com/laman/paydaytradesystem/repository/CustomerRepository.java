@@ -10,6 +10,10 @@ import java.util.Optional;
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
     // custom query methods
 
-    Optional<Customer> findByEmail(String email);
+    @Override
+    Optional<Customer> findById(Long aLong);
+
+
+    Customer findByEmail(String email);
 
 }

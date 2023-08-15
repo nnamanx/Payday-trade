@@ -50,7 +50,6 @@ public class Customer implements UserDetails {
 
     @ElementCollection
     @MapKeyColumn(name = "stock_symbol")
-//    @Column(name = "stock_quantity")
     @Builder.Default
     Map<String, Integer> stocks = new HashMap<>();        //why hashmap?
 
@@ -89,6 +88,7 @@ public class Customer implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 
 
     //Here's how the entities map to the provided user stories:

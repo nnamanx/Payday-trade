@@ -11,5 +11,6 @@ public final class Messages {
     public static final String USERNAME_NOT_FOUND = "Username not found!";
     public static final String CUSTOMER_REGISTERED_SUCCESSFULLY= "Customer registered successfully";
     public static final String CUSTOMER_ACTIVATED_SUCCESSFULLY = "Customer activated successfully";
+    public static final String ORDER_PLACED_SUCCESSFULLY = "Order placed successfully";
 
 }

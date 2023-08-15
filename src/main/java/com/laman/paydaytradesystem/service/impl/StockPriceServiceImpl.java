@@ -29,6 +29,7 @@ public class StockPriceServiceImpl implements StockPriceService {
 
         BigDecimal initialPrice = stockPrices.get(stockSymbol);
         BigDecimal randomChange = BigDecimal.valueOf(Math.random() * 20 - 10);
+
         return initialPrice.add(randomChange);
     }
 }

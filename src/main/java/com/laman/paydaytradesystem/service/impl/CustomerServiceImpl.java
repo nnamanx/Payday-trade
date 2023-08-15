@@ -40,7 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
                 .email(email)
                 .password(password)
                 .build();
-        
+
         newCustomer.setActivationCode(generateActivationCode());
         customerRepository.save(newCustomer);
 
