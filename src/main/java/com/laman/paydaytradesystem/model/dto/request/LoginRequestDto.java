@@ -15,6 +15,8 @@ import static com.laman.paydaytradesystem.model.constants.Messages.*;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class LoginRequestDto {
+    
+    // bruh, I don't need this class anymore :D
 
     @NotBlank
     @Email(message = INVALID_EMAIL)
