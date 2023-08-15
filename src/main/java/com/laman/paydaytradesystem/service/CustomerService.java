@@ -9,10 +9,7 @@ import org.apache.coyote.Response;
 import java.math.BigDecimal;
 
 public interface CustomerService {
-//
-//    ResponseDto<AuthenticationResponseDto> signUp(CustomerRequestDto appUserRequestDto);
-//    ResponseDto<AuthenticationResponseDto> login(CustomerRequestDto appUserRequestDto);
-//    ResponseDto<AuthenticationResponseDto> refreshToken(String authHeader);
+
     void executeOrderAndUpdateBalance(OrderStock order, Double currentPrice);
     
 }
