@@ -52,8 +52,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 customerRequestDto.getPassword())
         );
 
-        var customer = customerRepository.findByEmail(customerRequestDto.getEmail())
-                .orElseThrow();
+        var customer = customerRepository.findByEmail(customerRequestDto.getEmail());
+          
 
         var jwtToken = jwtService.generateToken(customer);
 

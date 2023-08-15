@@ -30,7 +30,7 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer registerCustomer(String username, String email, String password) {
 
         // Check if the user already exists with the provided email
-        if (customerRepository.findByEmail(email).isPresent()) {
+        if (customerRepository.findByEmail(email).isEnabled()) {
             throw new CustomerAlreadyExistsException();
         }
 
@@ -50,6 +50,18 @@ public class CustomerServiceImpl implements CustomerService {
 
         return newCustomer;
     }
+    
+//    public void checkIfCustomerExistsByEmail(String email) {
+//        Customer customer = customerRepository.findByEmail(email);
+//
+//        if (customer != null) {
+//            System.out.println("Customer with email " + email + " exists.");
+//            // Perform further operations with the customer
+//        } else {
+//            System.out.println("Customer with email " + email + " does not exist.");
+//            // Handle accordingly
+//        }
+//    }
 
     @Override
     public String generateActivationCode() {

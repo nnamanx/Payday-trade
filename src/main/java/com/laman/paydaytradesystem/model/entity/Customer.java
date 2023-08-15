@@ -89,8 +89,6 @@ public class Customer implements UserDetails {
         return true;
     }
 
-
-
     //Here's how the entities map to the provided user stories:
 
     //Sign Up: This involves creating a user with a username, email, and password. Once activated, the user can interact with the system.
