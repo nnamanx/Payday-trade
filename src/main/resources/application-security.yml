@@ -1,0 +1,3 @@
+application:
+  security:
+    secret-key: my32CharacterUltraSecureAndUltraLongSecretKeyValue

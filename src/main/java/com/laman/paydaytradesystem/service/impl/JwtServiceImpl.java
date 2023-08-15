@@ -22,9 +22,9 @@ import java.util.function.Function;
 @RequiredArgsConstructor
 public class JwtServiceImpl implements JwtService {
 
-//    @Value("${application.security.secret-key}")
-//    String SECRET_KEY;
-    String SECRET_KEY = "7F7E6D6C5B5A5958474645443B3A393837";
+    @Value("${application.security.secret-key}")
+    String SECRET_KEY;
+
 
     @Override
     public String extractUserEmail(String jwtToken) {

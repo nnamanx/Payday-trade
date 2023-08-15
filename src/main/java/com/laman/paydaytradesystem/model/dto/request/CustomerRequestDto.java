@@ -26,6 +26,5 @@ public class CustomerRequestDto {
     @Size(min = 6, message = PASSWORD_RULE)
     String password;
 
-    Role role; // needed?
 
 }
