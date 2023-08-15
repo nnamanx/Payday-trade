@@ -29,7 +29,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public AuthenticationResponseDto register(CustomerRequestDto customerRequestDto) {
 
         var customer = Customer.builder()
-                .fullName(customerRequestDto.getName())
+                .fullName(customerRequestDto.getFullName())
                 .email(customerRequestDto.getEmail())
                 .password(passwordEncoder.encode(customerRequestDto.getPassword()))
                 .role(Role.USER)    // defining USER as a default

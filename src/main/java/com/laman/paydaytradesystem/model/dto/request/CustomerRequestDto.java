@@ -18,7 +18,7 @@ import static com.laman.paydaytradesystem.model.constants.Messages.*;
 public class CustomerRequestDto {
 
     @NotBlank
-    String name;
+    String fullName;
     @NotBlank
     @Email(message = INVALID_EMAIL)
     String email;

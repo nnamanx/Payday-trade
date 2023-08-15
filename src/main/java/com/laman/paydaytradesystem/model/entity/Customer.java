@@ -52,7 +52,7 @@ public class Customer implements UserDetails {
     List<Transaction> transactions;
 
     @ElementCollection
-//    @MapKeyColumn(name = "stock_symbol")
+    @MapKeyColumn(name = "stock_symbol")
 //    @Column(name = "stock_quantity")
     @Builder.Default
     Map<String, Integer> stocks = new HashMap<>();        //why hashmap?
