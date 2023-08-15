@@ -22,7 +22,8 @@ public class StockController {
 
     @GetMapping
     public ResponseEntity<List<Stock>> listMockStocks() {
-        List<Stock> mockStocks = stockService.getAllMockStocks();
-        return ResponseEntity.ok(mockStocks);
+//        List<Stock> mockStocks = stockService.getAllMockStocks();
+//        return ResponseEntity.ok(mockStocks);
+        return null;
     }
 }
