@@ -31,7 +31,7 @@ public class Customer implements UserDetails {
     String email; //username
     String password; //hashed
     String phoneNumber;
-    Long deposit;
+    Double balance;
     @Builder.Default
     Boolean isActive = false;
     String activationCode;
