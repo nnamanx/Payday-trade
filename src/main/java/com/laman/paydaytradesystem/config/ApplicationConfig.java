@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import static com.laman.paydaytradesystem.model.constants.Messages.USER_NOT_FOUND;
+import static com.laman.paydaytradesystem.model.constants.Messages.USERNAME_NOT_FOUND;
 
 @Configuration
 @RequiredArgsConstructor
@@ -25,7 +25,7 @@ public class ApplicationConfig {
     public UserDetailsService userDetailsService() {
 
         return username -> customerRepository.findByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException(USER_NOT_FOUND));
+                .orElseThrow(() -> new UsernameNotFoundException(USERNAME_NOT_FOUND));
     }
 
     @Bean
