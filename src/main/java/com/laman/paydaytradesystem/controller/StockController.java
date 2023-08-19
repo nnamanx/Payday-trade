@@ -1,10 +1,13 @@
 package com.laman.paydaytradesystem.controller;
 
 
-import com.laman.paydaytradesystem.service.StockService;
+import com.laman.paydaytradesystem.model.dto.request.StockDTO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -12,14 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class StockController {
 
-    private final StockService stockService;
+    private final StockApiClient stockApiClient;
 
+    @GetMapping("/all")
+    public List<StockDTO> getAllStocks() {
+        return stockApiClient.getAllMockStocks();
+    }
 
-//    @GetMapping
-//    public ResponseEntity<List<Stock>> listMockStocks() {
-//        List<StockDTO> mockStocks = stockService.getAllMockStocks();
-//        return ResponseEntity.ok(mockStocks);
-//        return null;
-//    }
 
 }
