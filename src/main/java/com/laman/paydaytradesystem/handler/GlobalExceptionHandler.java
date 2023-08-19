@@ -1,8 +1,7 @@
 package com.laman.paydaytradesystem.handler;
 
 
-import com.laman.paydaytradesystem.exception.CustomerAlreadyActivatedException;
-import com.laman.paydaytradesystem.exception.CustomerNotFoundException;
+import com.laman.paydaytradesystem.exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -24,8 +23,25 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 
+    @ExceptionHandler(UsernameNotFoundException.class)
+    public ResponseEntity<String> handleUsernameNotFoundException(UsernameNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
+
     @ExceptionHandler(CustomerAlreadyActivatedException.class)
     public ResponseEntity<String> handleCustomerAlreadyActivatedException(CustomerAlreadyActivatedException ex) {
+//        return ResponseEntity.badRequest().body(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+    }
+
+    @ExceptionHandler(CustomerAlreadyExistsException.class)
+    public ResponseEntity<String> handleCustomerAlreadyExistsException(CustomerAlreadyExistsException ex){
+        return ResponseEntity.badRequest().body(ex.getMessage());
+    }
+
+
+    @ExceptionHandler(InvalidActivationCodeException.class)
+    public ResponseEntity<String> handleInvalidActivationCodeException(InvalidActivationCodeException ex){
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
 
