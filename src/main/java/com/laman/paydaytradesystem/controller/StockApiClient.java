@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 
-@FeignClient(value = "rate", url = "https://dummyjson.com/products")
+@FeignClient(value = "StockData", url = "https://dummyjson.com/products")
 @Component
 public interface StockApiClient {
 
