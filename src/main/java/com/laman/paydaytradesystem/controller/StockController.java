@@ -19,8 +19,8 @@ public class StockController {
 
     @GetMapping("/all")
     public List<StockDTO> getAllStocks() {
+
         return stockApiClient.getAllMockStocks();
     }
-
 
 }
