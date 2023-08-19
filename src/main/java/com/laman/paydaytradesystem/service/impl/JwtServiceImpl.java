@@ -71,7 +71,6 @@ public class JwtServiceImpl implements JwtService {
                 .compact();
     }
 
-    // WHEN DO WE NEED THIS METHOD?
     @Override
     public String generateToken(UserDetails userDetails) {
 
