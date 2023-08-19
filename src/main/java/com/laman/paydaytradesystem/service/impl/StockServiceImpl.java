@@ -11,11 +11,10 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class StockServiceImpl implements StockService {
-    
+
     private final StockApiClient stockApiClient;
 
-
-    public List<StockDTO> getAllMockStocks() {
+    public List<StockDTO> fetchStocks() {
         return stockApiClient.getAllMockStocks();
     }
 

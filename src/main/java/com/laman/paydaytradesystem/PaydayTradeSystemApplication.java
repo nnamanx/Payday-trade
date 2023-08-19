@@ -1,15 +1,14 @@
 package com.laman.paydaytradesystem;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class PaydayTradeSystemApplication {                            // implements CommandLineRunner
-// private final StockApiClient stockApiClient;
+    // private final StockApiClient stockApiClient;
     public static void main(String[] args) {
         SpringApplication.run(PaydayTradeSystemApplication.class, args);
     }

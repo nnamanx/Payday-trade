@@ -16,8 +16,4 @@ public interface StockApiClient {
     List<StockDTO> getAllMockStocks();
 
 
-
-
-
-
 }
