@@ -8,15 +8,13 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableFeignClients
 @RequiredArgsConstructor
-public class PaydayTradeSystemApplication{ // implements CommandLineRunner
-//    private final StockApiClient stockApiClient;
+public class PaydayTradeSystemApplication {                            // implements CommandLineRunner
+// private final StockApiClient stockApiClient;
     public static void main(String[] args) {
         SpringApplication.run(PaydayTradeSystemApplication.class, args);
     }
-
 //    @Override
-//    public void run(String... args) throws Exception {
-//           String s= stockApiClient.getAllMockStocks();
-//        System.out.println(s);
+//  public void run(String... args) throws Exception {
+//        System.out.println(stockApiClient.getAllMockStocks());
 //    }
 }

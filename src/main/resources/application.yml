@@ -1,3 +1,4 @@
+
 spring:
   application:
     name: delivery-management
@@ -6,4 +7,6 @@ spring:
       - db
       - security
       - email
+server:
+  port: 8081
 #      - feign
